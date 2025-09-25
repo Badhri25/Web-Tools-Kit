@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base64 Encoder / Decoder</title>
+    <meta name="description" content="Encode and decode Base64 for text and files. UTF‑8 safe, offline, and private.">
+    <link rel="canonical" href="https://yourdomain.com/base64.html">
+    <meta property="og:title" content="Base64 Encoder / Decoder">
+    <meta property="og:description" content="Convert Base64 in your browser—no uploads.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="javascript.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Base64 Encoder / Decoder","operatingSystem":"Web","applicationCategory":"Utilities","url":"https://yourdomain.com/base64.html"}
+    </script>
+    <link rel="stylesheet" href="tools.css">
+    <style>
+        .tool-container{ max-width:1100px; margin:2rem auto; padding:0 1rem }
+        .grid{ display:grid; grid-template-columns:1fr 1fr; gap:1.5rem }
+        .card{ background:var(--card-bg); border-radius:12px; padding:1rem; box-shadow:var(--shadow) }
+        textarea{ width:100%; min-height:240px; border:1px solid var(--border-color); border-radius:8px; padding:.75rem; background:var(--bg-color); color:var(--text-primary) }
+        .row{ display:flex; gap:.75rem; align-items:center; flex-wrap:wrap; margin:.75rem 0 }
+        .btn{ padding:.6rem .9rem; border-radius:8px; border:1px solid var(--border-color); background:var(--bg-color); cursor:pointer; font-weight:600; color:var(--text-primary) }
+        .btn.primary{ background:linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color:#fff; border:none }
+        .muted{ color:var(--text-secondary); font-size:.9rem }
+        input[type="file"]{ display:none }
+        .pill{ padding:.35rem .6rem; border-radius:999px; background:var(--hover-bg); color:var(--text-secondary); font-size:.8rem }
+        @media (max-width: 900px){ .grid{ grid-template-columns:1fr } }
+    </style>
+    <script defer src="base64.js"></script>
+</head>
+<body>
+    <div class="site-container">
+        <header class="site-header">
+            <div class="header-content">
+                <a href="tools.html" class="logo">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729z"/></svg>
+                    <span>Web Tools</span>
+                </a>
+                <nav class="main-nav">
+                    <a href="tools.html" class="nav-link">All Tools</a>
+                </nav>
+            </div>
+        </header>
+
+        <div class="page-header">
+            <h1>Base64 Encoder / Decoder</h1>
+            <p>Encode or decode text and files locally in your browser. No uploads.</p>
+        </div>
+
+        <main class="tool-container">
+            <div class="grid">
+                <div class="card">
+                    <div class="row">
+                        <span class="pill">UTF-8</span>
+                        <span class="pill">Files Supported</span>
+                        <span class="pill">Clipboard</span>
+                    </div>
+                    <textarea id="b64-input" placeholder="Enter text to encode or Base64 to decode..."></textarea>
+                    <div class="row">
+                        <button class="btn primary" data-action="encode">Encode →</button>
+                        <button class="btn" data-action="decode">← Decode</button>
+                        <button class="btn" data-action="copy">Copy</button>
+                        <label class="btn" for="file-input">Encode File</label>
+                        <input id="file-input" type="file">
+                        <button class="btn" data-action="download">Download Output</button>
+                    </div>
+                    <p class="muted" id="hint">Tip: Decoding tries to detect UTF-8; binary may show garbled text.</p>
+                </div>
+                <div class="card">
+                    <h3 style="margin-bottom:.5rem; color:var(--text-primary)">Output</h3>
+                    <textarea id="b64-output" placeholder="Your result will appear here..."></textarea>
+                    <div class="row">
+                        <button class="btn" data-action="swap">Swap</button>
+                        <button class="btn" data-action="clear">Clear</button>
+                        <button class="btn" data-action="copy-output">Copy Output</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p>&copy; 2024 Web Tools Collection.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+
+
